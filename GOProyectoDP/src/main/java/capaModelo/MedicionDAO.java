@@ -12,23 +12,37 @@ public class MedicionDAO implements IMedicionDAO {
     private Connection connection;
 
     public MedicionDAO() {
-        this.connection = ConexionSingleton.obtenerInstancia().getConexion();;
+        try {
+        this.connection = ConexionSingleton.obtenerInstancia().getConexion();
+        if (this.connection == null) {
+            System.out.println("Error: La conexión es null en MedicionDAO");
+        } else {
+            System.out.println("Conexión establecida correctamente en MedicionDAO");
+        }
+    } catch (Exception e) {
+        System.out.println("Error en el constructor de MedicionDAO: " + e.getMessage());
+        e.printStackTrace();
+    }
     }
 
 
 
     @Override
     public void insertarMedicion(Medicion medicion) {
-        String sql = "{call GestionarMedicion('Insertar', ?, ?, ?)}";
-        try (PreparedStatement ps = connection.prepareStatement(sql)) {
-            ps.setInt(1, medicion.getUserId());
-            ps.setDouble(2, medicion.getPeso()); // Asegúrate de usar setDouble
-            ps.setDouble(3, medicion.getTalla()); // Asegúrate de usar setDouble
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    String sql = "{CALL GestionarMedicion(?, ?, ?, ?, ?)}";
+    try (CallableStatement cs = connection.prepareCall(sql)) {
+        cs.setString(1, "Insertar");
+        cs.setNull(2, Types.INTEGER); // ID autogenerado
+        cs.setInt(3, medicion.getUserId()); // Asegúrate de que es getUserId()
+        cs.setDouble(4, medicion.getPeso());
+        cs.setDouble(5, medicion.getTalla());
+        cs.executeUpdate();
+        System.out.println("Medición registrada exitosamente.");
+    } catch (SQLException e) {
+        System.out.println("Error al insertar la medición: " + e.getMessage());
+        e.printStackTrace();
     }
+}
 
     @Override
     public Medicion obtenerMedicion(int id) {

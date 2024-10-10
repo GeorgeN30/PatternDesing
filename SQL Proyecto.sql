@@ -156,31 +156,22 @@ END;
 
 
 
+use BDProyecto;
 
+select * from Usuarios;
+select * from Mediciones;
+select * from Historial;
 
-
-
-/*EXEC GestionarUsuario 
-    @Operacion = 'Insertar', 
-    @Nombre = 'Juan Pérez', 
-    @Edad = 30, 
-    @Sexo = 'M', 
-    @FechaRegistro = '2024-10-03';
-
-EXEC GestionarUsuario 
-    @Operacion = 'Actualizar', 
-    @Id = 1, 
-    @Nombre = 'Juan Pérez', 
-    @Edad = 31, 
-    @Sexo = 'M';
-
-
-EXEC GestionarUsuario 
-    @Operacion = 'Obtener', 
-    @Id = 1;
-*/
-	
-	
-select*from Usuarios;
 delete from Usuarios;
+delete from Mediciones;
+
+
+
 DBCC CHECKIDENT ('Usuarios', RESEED, 0);
+DBCC CHECKIDENT ('Mediciones', RESEED, 0);
+DBCC CHECKIDENT ('IMC', RESEED, 0);
+DBCC CHECKIDENT ('Historial', RESEED, 0);
+
+
+
+

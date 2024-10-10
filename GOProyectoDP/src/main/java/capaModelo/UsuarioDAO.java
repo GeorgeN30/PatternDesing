@@ -56,15 +56,16 @@ public class UsuarioDAO implements IUsuarioDAO {
 
     @Override
     public void actualizarUsuario(Usuario usuario) {
-        String query = "{call GestionarUsuario('Actualizar', ?, ?, ?, ?, ?)}";
+        String query = "{call GestionarUsuario('Actualizar'?, ?, ?, ?, ?, ?)}";
     try (PreparedStatement ps = conexion.prepareStatement(query)) {
-        ps.setInt(1, usuario.getId());  // Asigna el ID del usuario a actualizar
-        ps.setString(2, usuario.getNombre());
-        ps.setInt(3, usuario.getEdad());
-        ps.setString(4, String.valueOf(usuario.getSexo())); // Convertimos el char en String
-        ps.setDate(5, usuario.getFechaRegistro());
-        ps.executeUpdate();
-        System.out.println("Usuario actualizado exitosamente.");
+        ps.setString(1, "Actualizar");
+            ps.setInt(2, usuario.getId());
+            ps.setString(3, usuario.getNombre());
+            ps.setInt(4, usuario.getEdad());
+            ps.setString(5, String.valueOf(usuario.getSexo()));
+            ps.setDate(6, null); 
+            ps.executeUpdate();
+            System.out.println("Usuario actualizado exitosamente.");
     } catch (SQLException e) {
         e.printStackTrace();
     }

@@ -14,7 +14,7 @@ public class IMCDAO implements IIMCDAO {
 
     @Override
     public void insertarIMC(IMC imc) {
-        String sql = "INSERT INTO IMC (MedicionID, imc, fechaCalculo) VALUES (?, ?, ?)";
+        String sql = "{call GestionarIMC('Insertar', NULL, ?, ?, ?)}";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, imc.getMedicionId());
             ps.setDouble(2, imc.getImc()); // Asegúrate de usar setDouble
@@ -27,7 +27,7 @@ public class IMCDAO implements IIMCDAO {
 
     @Override
     public IMC obtenerIMC(int id) {
-        String sql = "SELECT * FROM IMC WHERE id = ?";
+        String sql = "{call GestionarIMC('Obtener', ?, NULL, NULL, NULL)}";
         IMC imc = null;
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, id);
@@ -48,7 +48,7 @@ public class IMCDAO implements IIMCDAO {
 
     @Override
     public void actualizarIMC(IMC imc) {
-        String sql = "UPDATE IMC SET MedicionID = ?, imc = ?, fechaCalculo = ? WHERE id = ?";
+        String sql = "{CALL GestionarIMC('Actualizar', ?, ?, ?, ?)}";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, imc.getMedicionId());
             ps.setDouble(2, imc.getImc()); // Asegúrate de usar setDouble
@@ -64,7 +64,7 @@ public class IMCDAO implements IIMCDAO {
     @Override
     public List<IMC> obtenerTodosLosIMC() {
         List<IMC> imcs = new ArrayList<>();
-        String sql = "SELECT * FROM IMC";
+        String sql = "{CALL GestionarIMC('ObtenerTodos', NULL, NULL, NULL, NULL)}";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

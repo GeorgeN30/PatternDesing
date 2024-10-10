@@ -1,27 +1,33 @@
 package CapaControl;
 
-import capaModelo.DAOFactory; // Asegúrate de que esta importación esté correcta
-import capaModelo.IUsuarioDAO;
-import capaModelo.IMedicionDAO;
-import capaModelo.IHistorialDAO;
 import capaModelo.Usuario;
 import capaModelo.Medicion;
-import capaModelo.Historial;
+
+import capaModelo.IMC;
+import capaControl.RegistroFactory;
+import capaControl.IRegisIMC;
+import capaControl.IRegisMedicion;
+import capaControl.IRegisUsuario;
+import java.util.List;
+
+
+
 
 public class RegistroControl {
     private static RegistroControl instancia;
-    private IUsuarioDAO usuarioDAO;
-    private IMedicionDAO medicionDAO;
-    private IHistorialDAO historialDAO;
+    private final IRegisUsuario registrarUsuario;
+    private final IRegisMedicion registrarMedicion;
+    private final IRegisIMC registrarIMC;
+    
 
-    // Constructor privado
     private RegistroControl() {
-        usuarioDAO = DAOFactory.getUsuarioDAO();
-        medicionDAO = DAOFactory.getMedicionDAO();
-        historialDAO = DAOFactory.getHistorialDAO();
+        registrarUsuario = RegistroFactory.crearRegistroUsuario();
+        registrarMedicion = RegistroFactory.crearRegistroMedicion();
+        registrarIMC = RegistroFactory.crearRegistroIMC();
+        
+        
     }
 
-    // Método para obtener la única instancia de RegistroControl
     public static RegistroControl obtenerInstancia() {
         if (instancia == null) {
             instancia = new RegistroControl();
@@ -29,18 +35,23 @@ public class RegistroControl {
         return instancia;
     }
 
-    // Método para registrar un nuevo usuario
     public void registrarUsuario(Usuario usuario) {
-        usuarioDAO.insertarUsuario(usuario);
+        registrarUsuario.registrarUsuario(usuario);
+    }
+    public void actualizarUsuario(Usuario usuario) {
+        registrarUsuario.actualizarUsuario(usuario);
     }
 
-    // Método para registrar una nueva medición
+
     public void registrarMedicion(Medicion medicion) {
-        medicionDAO.insertarMedicion(medicion);
+        registrarMedicion.registrarMedicion(medicion);
     }
 
-    // Método para registrar un historial
-    public void registrarHistorial(Historial historial) {
-        historialDAO.insertarHistorial(historial);
+    public void registrarIMC(IMC imc) {
+        registrarIMC.registrarIMC(imc);
     }
+    public List<Medicion> obtenerMediciones(int userId) {
+        return registrarMedicion.obtenerMediciones(userId);
+    }
+    
 }

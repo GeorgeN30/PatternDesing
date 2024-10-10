@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package capaModelo;
 
 /**
@@ -14,14 +11,19 @@ public class DAOFactory {
        return new UsuarioDAO();
     }
      public static IMedicionDAO getMedicionDAO() {
-        return new MedicionDAO();
+        MedicionDAO medicionDAO = new MedicionDAO();
+        if (medicionDAO == null) {
+            System.out.println("Error: MedicionDAO es null en DAOFactory");
+        } else {
+            System.out.println("MedicionDAO se ha creado correctamente en DAOFactory");
+        }
+        return medicionDAO;
+    
     }
 
     public static IIMCDAO getIMCDAO() {
         return new IMCDAO();
     }
 
-    public static IHistorialDAO getHistorialDAO() {
-        return new HistorialDAO();
-    }
+   
 }

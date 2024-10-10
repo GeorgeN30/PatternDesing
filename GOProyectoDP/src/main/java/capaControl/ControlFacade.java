@@ -13,6 +13,8 @@ import java.util.List;
 public class ControlFacade {
     private RegistroControl registroControl;
     private ConsultaControl consultaControl;
+    
+    
 
 public ControlFacade() {
     registroControl = RegistroControl.obtenerInstancia(); // Usa el método obtenerInstancia()
@@ -28,7 +30,10 @@ public ControlFacade() {
     public Usuario obtenerUsuario(int id) {
         return consultaControl.obtenerUsuario(id);
     }
-
+    public void actualizarUsuario(Usuario usuario){
+        registroControl.actualizarUsuario(usuario);
+    }
+    
     // Método para registrar una nueva medición
     public void registrarMedicion(Medicion medicion) {
         registroControl.registrarMedicion(medicion);
@@ -39,13 +44,5 @@ public ControlFacade() {
         return consultaControl.obtenerMediciones(userId);
     }
 
-    // Método para registrar un historial
-    public void registrarHistorial(Historial historial) {
-        registroControl.registrarHistorial(historial);
-    }
-
-    // Método para obtener el historial de un usuario
-    public List<Historial> obtenerHistorial(int usuarioId) {
-        return consultaControl.obtenerHistorial(usuarioId);
-    }
+    
 }

@@ -8,13 +8,13 @@ public class ConsultaControl {
     private static ConsultaControl instancia;
     private IUsuarioDAO usuarioDAO;
     private IMedicionDAO medicionDAO;
-    private IHistorialDAO historialDAO;
+   
 
     // Constructor privado
     private ConsultaControl() {
         usuarioDAO = DAOFactory.getUsuarioDAO();
         medicionDAO = DAOFactory.getMedicionDAO();
-        historialDAO = DAOFactory.getHistorialDAO();
+        
     }
 
     // Método para obtener la única instancia de ConsultaControl
@@ -35,8 +35,5 @@ public class ConsultaControl {
         return medicionDAO.obtenerMedicionesPorUsuario(userId);
     }
 
-    // Método para obtener el historial de un usuario
-    public List<Historial> obtenerHistorial(int usuarioId) {
-        return historialDAO.obtenerHistorialPorUsuario(usuarioId);
-    }
+    
 }

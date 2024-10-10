@@ -2,15 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package capaModelo;
+package capaControl;
 
-import java.util.List;
+import capaModelo.Usuario;
 
-
-public interface IUsuarioDAO {
-    void insertarUsuario(Usuario usuario);
-    void actualizarUsuario(Usuario usuario);
-    
+/**
+ *
+ * @author georg
+ */
+public interface IRegisUsuario {
+    public void registrarUsuario(Usuario usuario);
     Usuario obtenerUsuario(int id);
-    List<Usuario> obtenerTodosLosUsuarios();
+    void actualizarUsuario(Usuario usuario);
 }
