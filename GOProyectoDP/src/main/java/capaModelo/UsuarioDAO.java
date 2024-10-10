@@ -53,21 +53,10 @@ public class UsuarioDAO implements IUsuarioDAO {
         return usuario;
     }
 
-    @Override
-    public void eliminarUsuario(int id) {
-        String sql = "{call GestionarUsuario('Eliminar', ?, NULL, NULL, NULL, NULL)}";
-        try (PreparedStatement ps = conexion.prepareStatement(sql)) {
-            ps.setInt(1, id);
-            ps.executeUpdate();
-            System.out.println("Usuario eliminado correctamente.");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Override
     public void actualizarUsuario(Usuario usuario) {
-        String query = "EXEC GestionarUsuario 'Actualizar', ?, ?, ?, ?, ?";
+        String query = "{call GestionarUsuario('Actualizar', ?, ?, ?, ?, ?)}";
     try (PreparedStatement ps = conexion.prepareStatement(query)) {
         ps.setInt(1, usuario.getId());  // Asigna el ID del usuario a actualizar
         ps.setString(2, usuario.getNombre());
@@ -83,7 +72,7 @@ public class UsuarioDAO implements IUsuarioDAO {
 
     @Override
     public List<Usuario> obtenerTodosLosUsuarios() {
-       String query = "EXEC GestionarUsuario 'ObtenerTodos'";
+       String query = "{CALL GestionarUsuario('ObtenerTodos')}";
     List<Usuario> usuarios = new ArrayList<>();
     try (PreparedStatement ps = conexion.prepareStatement(query);
          ResultSet rs = ps.executeQuery()) {

@@ -19,7 +19,7 @@ public class MedicionDAO implements IMedicionDAO {
 
     @Override
     public void insertarMedicion(Medicion medicion) {
-        String sql = "INSERT INTO Mediciones (UserID, peso, talla) VALUES (?, ?, ?)";
+        String sql = "{call GestionarMedicion('Insertar', ?, ?, ?)}";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, medicion.getUserId());
             ps.setDouble(2, medicion.getPeso()); // Asegúrate de usar setDouble
@@ -32,7 +32,7 @@ public class MedicionDAO implements IMedicionDAO {
 
     @Override
     public Medicion obtenerMedicion(int id) {
-        String sql = "SELECT * FROM Mediciones WHERE id = ?";
+        String sql = "{call GestionarMedicion('Obtener', ?, NULL, NULL, NULL)}";
         Medicion medicion = null;
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, id);
@@ -54,7 +54,7 @@ public class MedicionDAO implements IMedicionDAO {
 
     @Override
     public void actualizarMedicion(Medicion medicion) {
-        String sql = "UPDATE Mediciones SET UserID = ?, peso = ?, talla = ? WHERE id = ?";
+        String sql = "{call GestionarMedicion('Actualizar', ?, ?, ?, ?)}";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, medicion.getUserId());
             ps.setDouble(2, medicion.getPeso()); // Asegúrate de usar setDouble
@@ -66,21 +66,11 @@ public class MedicionDAO implements IMedicionDAO {
         }
     }
 
-    @Override
-    public void eliminarMedicion(int id) {
-        String sql = "DELETE FROM Mediciones WHERE id = ?";
-        try (PreparedStatement ps = connection.prepareStatement(sql)) {
-            ps.setInt(1, id);
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Override
      public List<Medicion> obtenerMedicionesPorUsuario(int userId) {
         List<Medicion> mediciones = new ArrayList<>();
-        String sql = "SELECT * FROM Mediciones WHERE UserID = ?";
+        String sql = "{call GestionarMedicion('ObtenerPorUsuario', NULL, ?)}";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, userId);  // Establecer el parámetro de usuario
             ResultSet rs = ps.executeQuery();

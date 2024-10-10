@@ -14,7 +14,7 @@ public class HistorialDAO implements IHistorialDAO {
 
     @Override
     public void insertarHistorial(Historial historial) {
-        String sql = "INSERT INTO Historial (UsuarioID, tipoCalculo, resultado, fechaCalculo) VALUES (?, ?, ?, ?)";
+        String sql = "{CALL GestionarUsuario(?, ?, ?, ?, ?, ?)}";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, historial.getUsuarioId());
             ps.setString(2, historial.getTipoCalculo());
@@ -28,7 +28,7 @@ public class HistorialDAO implements IHistorialDAO {
 
     @Override
     public Historial obtenerHistorial(int id) {
-        String sql = "SELECT * FROM Historial WHERE id = ?";
+        String sql = "{CALL spObtenerHistorial(?)}";
         Historial historial = null;
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, id);
@@ -63,17 +63,7 @@ public class HistorialDAO implements IHistorialDAO {
         }
     }
 
-    @Override
-    public void eliminarHistorial(int id) {
-        String sql = "DELETE FROM Historial WHERE id = ?";
-        try (PreparedStatement ps = connection.prepareStatement(sql)) {
-            ps.setInt(1, id);
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
+    
     @Override
     public List<Historial> obtenerHistorialPorUsuario(int usuarioId) {
         List<Historial> historialList = new ArrayList<>();

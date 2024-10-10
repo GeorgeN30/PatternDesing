@@ -31,6 +31,8 @@ CREATE TABLE Historial(
 	fechaCalculo date
 	);
 
+
+	--Procedimiento para la tabla usuario
 CREATE PROCEDURE GestionarUsuario
     @Operacion VARCHAR(20),
     @Id INT = NULL,
@@ -51,14 +53,104 @@ BEGIN
         SET Nombre = @Nombre, Edad = @Edad, Sexo = @Sexo
         WHERE Id = @Id;
     END
-    ELSE IF @Operacion = 'Eliminar'
-    BEGIN
-        DELETE FROM Usuarios
-        WHERE Id = @Id;
-    END
+    
     ELSE IF @Operacion = 'Obtener'
     BEGIN
         SELECT * FROM Usuarios WHERE Id = @Id;
+    END
+END;
+
+
+--Procedimiento para las mediciones
+CREATE PROCEDURE GestionarMedicion
+    @Operacion VARCHAR(20),
+    @Id INT = NULL,
+    @UserID INT = NULL,
+    @Peso DECIMAL(5,2) = NULL,
+    @Talla DECIMAL(4,2) = NULL
+AS
+BEGIN
+    IF @Operacion = 'Insertar'
+    BEGIN
+        INSERT INTO Mediciones (UserID, peso, talla)
+        VALUES (@UserID, @Peso, @Talla);
+    END
+    ELSE IF @Operacion = 'Actualizar'
+    BEGIN
+        UPDATE Mediciones
+        SET UserID = @UserID, peso = @Peso, talla = @Talla
+        WHERE id = @Id;
+    END
+    ELSE IF @Operacion = 'Obtener'
+    BEGIN
+        SELECT * FROM Mediciones WHERE id = @Id;
+    END
+    ELSE IF @Operacion = 'ObtenerPorUsuario'
+    BEGIN
+        SELECT * FROM Mediciones WHERE UserID = @UserID;
+    END
+END;
+
+
+--Procedimiento para el IMC
+CREATE PROCEDURE GestionarIMC
+    @Operacion VARCHAR(20),
+    @Id INT = NULL,
+    @MedicionID INT = NULL,
+    @Imc DECIMAL(4,2) = NULL,
+    @FechaCalculo DATE = NULL
+AS
+BEGIN
+    IF @Operacion = 'Insertar'
+    BEGIN
+        INSERT INTO IMC (MedicionID, imc, fechaCalculo)
+        VALUES (@MedicionID, @Imc, @FechaCalculo);
+    END
+    ELSE IF @Operacion = 'Actualizar'
+    BEGIN
+        UPDATE IMC
+        SET MedicionID = @MedicionID, imc = @Imc, fechaCalculo = @FechaCalculo
+        WHERE id = @Id;
+    END
+    ELSE IF @Operacion = 'Obtener'
+    BEGIN
+        SELECT * FROM IMC WHERE id = @Id;
+    END
+    ELSE IF @Operacion = 'ObtenerTodos'
+    BEGIN
+        SELECT * FROM IMC;
+    END
+END;
+
+
+--Procedimiento para el Historial
+CREATE PROCEDURE GestionarHistorial
+    @Operacion VARCHAR(20),
+    @Id INT = NULL,
+    @UsuarioID INT = NULL,
+    @TipoCalculo VARCHAR(20) = NULL,
+    @Resultado DECIMAL(4,2) = NULL,
+    @FechaCalculo DATE = NULL
+AS
+BEGIN
+    IF @Operacion = 'Insertar'
+    BEGIN
+        INSERT INTO Historial (UsuarioID, tipoCalculo, resultado, fechaCalculo)
+        VALUES (@UsuarioID, @TipoCalculo, @Resultado, @FechaCalculo);
+    END
+    ELSE IF @Operacion = 'Actualizar'
+    BEGIN
+        UPDATE Historial
+        SET UsuarioID = @UsuarioID, tipoCalculo = @TipoCalculo, resultado = @Resultado, fechaCalculo = @FechaCalculo
+        WHERE id = @Id;
+    END
+    ELSE IF @Operacion = 'Obtener'
+    BEGIN
+        SELECT * FROM Historial WHERE id = @Id;
+    END
+    ELSE IF @Operacion = 'ObtenerPorUsuario'
+    BEGIN
+        SELECT * FROM Historial WHERE UsuarioID = @UsuarioID;
     END
 END;
 
@@ -68,7 +160,7 @@ END;
 
 
 
-EXEC GestionarUsuario 
+/*EXEC GestionarUsuario 
     @Operacion = 'Insertar', 
     @Nombre = 'Juan Pérez', 
     @Edad = 30, 
@@ -82,15 +174,11 @@ EXEC GestionarUsuario
     @Edad = 31, 
     @Sexo = 'M';
 
-EXEC GestionarUsuario 
-    @Operacion = 'Eliminar', 
-    @Id = 1;
 
 EXEC GestionarUsuario 
     @Operacion = 'Obtener', 
     @Id = 1;
-
-
+*/
 	
 	
 select*from Usuarios;

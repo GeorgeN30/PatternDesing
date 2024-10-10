@@ -13,7 +13,7 @@ import java.util.List;
 public interface IIMCDAO {
     void insertarIMC(IMC imc);
     void actualizarIMC(IMC imc);
-    void eliminarIMC(int id);
+    
     IMC obtenerIMC(int id);
     List<IMC> obtenerTodosLosIMC();
 }

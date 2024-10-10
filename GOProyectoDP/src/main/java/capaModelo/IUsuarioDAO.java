@@ -11,7 +11,7 @@ import java.util.List;
 public interface IUsuarioDAO {
     void insertarUsuario(Usuario usuario);
     void actualizarUsuario(Usuario usuario);
-    void eliminarUsuario(int id);
+    
     Usuario obtenerUsuario(int id);
     List<Usuario> obtenerTodosLosUsuarios();
 }

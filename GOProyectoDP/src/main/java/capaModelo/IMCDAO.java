@@ -60,16 +60,6 @@ public class IMCDAO implements IIMCDAO {
         }
     }
 
-    @Override
-    public void eliminarIMC(int id) {
-        String sql = "DELETE FROM IMC WHERE id = ?";
-        try (PreparedStatement ps = connection.prepareStatement(sql)) {
-            ps.setInt(1, id);
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Override
     public List<IMC> obtenerTodosLosIMC() {
