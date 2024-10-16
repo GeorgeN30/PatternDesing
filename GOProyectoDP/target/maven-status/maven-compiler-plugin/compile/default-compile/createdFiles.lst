@@ -6,6 +6,7 @@ capaVista\GOProyectoDP.class
 capaModelo\Medicion.class
 capaControl\RegistroControl.class
 capaModelo\ConexionSingleton.class
+capaControl\MedicionLoggingDecorator.class
 capaModelo\Historial.class
 capaControl\ControlFacade.class
 capaControl\IRegisUsuario.class
@@ -15,7 +16,6 @@ capaModelo\IMC.class
 capaModelo\UsuarioDAO.class
 capaControl\RegistroFactory.class
 capaControl\ConsultaControl.class
-capaControl\IRegisHistorial.class
 capaControl\RegisUsuarioImpl.class
 capaControl\IRegisIMC.class
 capaControl\RegisMedicionImpl.class

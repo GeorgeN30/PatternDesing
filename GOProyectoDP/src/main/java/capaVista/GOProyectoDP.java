@@ -15,7 +15,7 @@ public class GOProyectoDP {
     public static void main(String[] args) throws SQLException {
         // Obtener la instancia de ControlFacade
         ControlFacade controlFacade = new ControlFacade();
-        Connection conexion = null;
+        
 
         // Crear un objeto Scanner para leer la entrada del usuario
         Scanner scanner = new Scanner(System.in);
@@ -55,7 +55,7 @@ public class GOProyectoDP {
                 
                 case 0:
                     System.out.println("¡Hasta luego!");
-                    conexion.isClosed();
+                    
                     break;
                 default:
                     System.out.println("Opción inválida. Por favor, intente nuevamente.");

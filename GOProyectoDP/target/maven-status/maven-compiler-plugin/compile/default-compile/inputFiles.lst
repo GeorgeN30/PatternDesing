@@ -6,7 +6,6 @@ C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\ja
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaModelo\UsuarioDAO.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaModelo\Medicion.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaModelo\MedicionDAO.java
-C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaControl\IRegisHistorial.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaModelo\IMC.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaControl\RegisMedicionImpl.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaModelo\Usuario.java
@@ -19,6 +18,7 @@ C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\ja
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaControl\RegisIMCImpl.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaControl\RegistroControl.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaControl\ControlFacade.java
+C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaControl\MedicionLoggingDecorator.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaControl\ConsultaControl.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaControl\RegistroFactory.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaModelo\IUsuarioDAO.java
