@@ -2,6 +2,9 @@ package CapaControl;
 
 import capaModelo.*;
 
+import capaControl.ConsultaFactory;
+import capaControl.IConsultaServicio;
+
 import java.util.List;
 
 public class ConsultaControl {
@@ -33,6 +36,11 @@ public class ConsultaControl {
     // Método para obtener todas las mediciones de un usuario
     public List<Medicion> obtenerMediciones(int userId) {
         return medicionDAO.obtenerMedicionesPorUsuario(userId);
+    }
+    
+    public double calcularYRegistrarIMC(int userId) {
+        IConsultaServicio servicioIMC = ConsultaFactory.crearConsultaServicio("IMC");
+        return servicioIMC.calcularYRegistrar(userId);
     }
 
     

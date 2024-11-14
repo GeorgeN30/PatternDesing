@@ -38,6 +38,10 @@ public ControlFacade() {
     public void registrarMedicion(Medicion medicion) {
         registroControl.registrarMedicion(medicion);
     }
+    public double calcularYRegistrarIMC(int userId) {
+        return consultaControl.calcularYRegistrarIMC(userId);
+    }
+    
 
     // Método para obtener todas las mediciones de un usuario
     public List<Medicion> obtenerMediciones(int userId) {

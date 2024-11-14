@@ -18,7 +18,6 @@ public class MedicionDAO implements IMedicionDAO {
         }
     } catch (Exception e) {
         System.out.println("Error en el constructor de MedicionDAO: " + e.getMessage());
-        e.printStackTrace();
     }
     }
 
