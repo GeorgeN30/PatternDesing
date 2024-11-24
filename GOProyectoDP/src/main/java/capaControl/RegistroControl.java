@@ -2,7 +2,6 @@ package CapaControl;
 
 import capaModelo.Usuario;
 import capaModelo.Medicion;
-
 import capaModelo.IMC;
 import capaControl.RegistroFactory;
 import capaControl.IRegisIMC;

@@ -2,23 +2,18 @@ package CapaControl;
 
 
 import capaModelo.Medicion; 
-import capaModelo.Historial; 
 import capaModelo.Usuario; 
-
-
-
-
 import java.util.List;
 
-public class ControlFacade {
+public class ControlFacade{
     private RegistroControl registroControl;
     private ConsultaControl consultaControl;
     
     
 
 public ControlFacade() {
-    registroControl = RegistroControl.obtenerInstancia(); // Usa el método obtenerInstancia()
-    consultaControl = ConsultaControl.obtenerInstancia(); // Asegúrate de que esto también esté correcto
+    registroControl = RegistroControl.obtenerInstancia(); 
+    consultaControl = ConsultaControl.obtenerInstancia(); 
 }
 
     // Método para registrar un nuevo usuario
