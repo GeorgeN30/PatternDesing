@@ -2,6 +2,7 @@ C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\ja
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaModelo\IMCService.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaControl\IRegisMedicion.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaModelo\UsuarioDAO.java
+C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaVista\EstadoMedida.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaControl\RegisMedicionImpl.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaModelo\Usuario.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaModelo\ConexionSingleton.java
@@ -15,6 +16,7 @@ C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\ja
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaControl\ConsultaControl.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaControl\RegistroFactory.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaModelo\IUsuarioDAO.java
+C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaVista\CompletadoState.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaModelo\IMedicionDAO.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaControl\IConsultaServicio.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaModelo\Historial.java
@@ -24,6 +26,7 @@ C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\ja
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaModelo\MedicionDAO.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaModelo\IMC.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaVista\pnlActualizarUsuario.java
+C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaVista\ValidandoState.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaControl\IRegisIMC.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaControl\IRegisUsuario.java
 C:\Users\georg\OneDrive\Documentos\GitHub\PatternDesing\GOProyectoDP\src\main\java\capaControl\RegisIMCImpl.java

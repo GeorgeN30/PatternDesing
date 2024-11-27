@@ -223,13 +223,11 @@ public class pnlRegistrarUsuario extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this, "Usuario registrado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 
         // Limpiar los campos
-        txtNombre.setText("");
-        txtEdad.setText("");
-        txtSexo.setText("");
+        limpiarCampos();
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        // TODO add your handling code here:
+        limpiarCampos();
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
@@ -244,7 +242,11 @@ public class pnlRegistrarUsuario extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSexoActionPerformed
 
-
+    public void limpiarCampos() {
+    txtNombre.setText(" ");
+    txtEdad.setText(" ");
+    txtSexo.setText(" ");
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirmar;
     private javax.swing.JButton btnLimpiar;
