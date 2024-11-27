@@ -159,7 +159,7 @@ END;
 use BDProyecto;
 
 
-INSERT INTO Usuarios (Nombre, edad, sexo) VALUES ('NONOya', 24, 'F');
+INSERT INTO Usuarios (Nombre, edad, sexo) VALUES ('George', 18, 'M');
 
 select * from Usuarios;
 select * from Mediciones;
