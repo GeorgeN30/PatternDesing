@@ -25,10 +25,17 @@ public class MenuPrincipal extends javax.swing.JFrame{
     pnlActualizarUsuario pnlActuaUsuario = new pnlActualizarUsuario();
     pnlRegistrarMedidas pnlRegisMedidas = new pnlRegistrarMedidas();
     pnlActualizarMedidas pnlActuaMedidas = new pnlActualizarMedidas();
+    
+    pnlConsultarUsuario pnlConsulUsu = new pnlConsultarUsuario();
+    pnlConsultarMedidas pnlConsulMedi = new pnlConsultarMedidas();
+    pnlConsultarIMC pnlConsulIMC = new pnlConsultarIMC();
+    
     CardLayout vista;
+    CardLayout vista1;
     public MenuPrincipal() {
         initComponents();
         vista = (CardLayout) pnlVistaPrincipal.getLayout();
+        vista1 = (CardLayout) pnlVistaPrincipal1.getLayout();
 
     }
 
@@ -50,6 +57,12 @@ public class MenuPrincipal extends javax.swing.JFrame{
         btnRegistrarMedidas = new javax.swing.JToggleButton();
         pnlVistaPrincipal = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        btnConsultarUsuario = new javax.swing.JToggleButton();
+        btnConsultarMedidas = new javax.swing.JToggleButton();
+        btnConsultarIMC = new javax.swing.JToggleButton();
+        pnlVistaPrincipal1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("NUTRIHEALT");
@@ -148,15 +161,105 @@ public class MenuPrincipal extends javax.swing.JFrame{
 
         jTabbedPane1.addTab("Registrar", jPanel1);
 
+        jPanel4.setBackground(new java.awt.Color(204, 255, 204));
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
+
+        btnConsultarUsuario.setBackground(new java.awt.Color(204, 204, 204));
+        btnConsultarUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnConsultarUsuario.setText("Consultar usuario");
+        btnConsultarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarUsuarioActionPerformed(evt);
+            }
+        });
+
+        btnConsultarMedidas.setBackground(new java.awt.Color(204, 204, 204));
+        btnConsultarMedidas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnConsultarMedidas.setText("Consultar medidas");
+        btnConsultarMedidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarMedidasActionPerformed(evt);
+            }
+        });
+
+        btnConsultarIMC.setBackground(new java.awt.Color(204, 204, 204));
+        btnConsultarIMC.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnConsultarIMC.setText("Consultar IMC");
+        btnConsultarIMC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarIMCActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnConsultarIMC, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConsultarMedidas, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConsultarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(btnConsultarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnConsultarMedidas, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addComponent(btnConsultarIMC, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83))
+        );
+
+        pnlVistaPrincipal1.setBackground(new java.awt.Color(204, 255, 255));
+        pnlVistaPrincipal1.setLayout(new java.awt.CardLayout());
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pnlVistaPrincipal1, javax.swing.GroupLayout.PREFERRED_SIZE, 992, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlVistaPrincipal1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1324, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 510, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Consultar", jPanel2);
@@ -171,7 +274,7 @@ public class MenuPrincipal extends javax.swing.JFrame{
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
 
         pack();
@@ -267,6 +370,71 @@ public class MenuPrincipal extends javax.swing.JFrame{
        }
     }//GEN-LAST:event_btnRegistrarMedidasActionPerformed
 
+    private void btnConsultarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarUsuarioActionPerformed
+        if(btnConsultarUsuario.isSelected()){
+            pnlVistaPrincipal1.add(pnlConsulUsu,"ConsultaUsuario");
+            vista1.show(pnlVistaPrincipal1, "ConsultaUsuario");
+            SwingUtilities.updateComponentTreeUI(this);
+            this.repaint();
+            
+            btnConsultarMedidas.setEnabled(false);
+            btnConsultarIMC.setEnabled(false);
+            btnConsultarUsuario.setBackground(WHITE);
+        }else{
+            pnlVistaPrincipal1.removeAll();
+            SwingUtilities.updateComponentTreeUI(this);
+            this.repaint();
+            btnConsultarMedidas.setEnabled(true);
+            btnConsultarIMC.setEnabled(true);
+            btnRegistrarMedidas.setBackground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_btnConsultarUsuarioActionPerformed
+
+    private void btnConsultarMedidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarMedidasActionPerformed
+        if(btnConsultarMedidas.isSelected()){
+            pnlVistaPrincipal1.add(pnlConsulMedi,"ConsultaMedi");
+            vista1.show(pnlVistaPrincipal1, "ConsultaMedi");
+            SwingUtilities.updateComponentTreeUI(this);
+            this.repaint();
+            
+            btnConsultarUsuario.setEnabled(false);
+            btnConsultarIMC.setEnabled(false);
+            btnConsultarMedidas.setBackground(WHITE);
+            
+            
+        }else{
+            pnlVistaPrincipal1.removeAll();
+            SwingUtilities.updateComponentTreeUI(this);
+            this.repaint();
+            btnConsultarUsuario.setEnabled(true);
+            btnConsultarIMC.setEnabled(true);
+            btnConsultarMedidas.setBackground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_btnConsultarMedidasActionPerformed
+
+    private void btnConsultarIMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarIMCActionPerformed
+         if(btnConsultarIMC.isSelected()){
+            pnlVistaPrincipal1.add(pnlConsulIMC,"ConsultaIMC");
+            vista1.show(pnlVistaPrincipal1, "ConsultaIMC");
+            SwingUtilities.updateComponentTreeUI(this);
+            this.repaint();
+            
+            btnConsultarUsuario.setEnabled(false);
+            btnConsultarMedidas.setEnabled(false);
+            btnConsultarIMC.setBackground(WHITE);
+            
+            
+            
+        }else{
+            pnlVistaPrincipal1.removeAll();
+            SwingUtilities.updateComponentTreeUI(this);
+            this.repaint();
+            btnConsultarUsuario.setEnabled(true);
+            btnConsultarMedidas.setEnabled(true);
+            btnConsultarIMC.setBackground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_btnConsultarIMCActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -305,12 +473,18 @@ public class MenuPrincipal extends javax.swing.JFrame{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnActualizarMedidas;
     private javax.swing.JToggleButton btnActualizarUsuario;
+    private javax.swing.JToggleButton btnConsultarIMC;
+    private javax.swing.JToggleButton btnConsultarMedidas;
+    private javax.swing.JToggleButton btnConsultarUsuario;
     private javax.swing.JToggleButton btnRegistrarMedidas;
     private javax.swing.JToggleButton btnRegistrarUsuario;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel pnlVistaPrincipal;
+    private javax.swing.JPanel pnlVistaPrincipal1;
     // End of variables declaration//GEN-END:variables
 }

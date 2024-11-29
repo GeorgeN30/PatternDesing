@@ -1,4 +1,7 @@
+Create Database BDProyecto;
 use BDProyecto;
+drop database BDProyecto;
+use DBventas;
 
 
 CREATE TABLE Usuarios(
@@ -9,17 +12,20 @@ CREATE TABLE Usuarios(
 	fechaRegistro date
 );
 
+
 CREATE TABLE Mediciones(
 	id int primary key identity(1,1),
 	UserID int foreign key references Usuarios(id),
 	peso decimal(5,2),
-	talla decimal(4,2)
+	talla decimal(5,2)
 );
+
+
 
 CREATE TABLE IMC(
 	id int primary key identity(1,1),
 	MedicionID int foreign key references Mediciones(id),
-	imc decimal(4,2),
+	imc decimal(5,2),
 	fechaCalculo date
 );
 
@@ -27,9 +33,10 @@ CREATE TABLE Historial(
 	id int primary key identity(1,1),
 	UsuarioID int foreign key references Usuarios(id),
 	tipoCalculo varchar(20),
-	resultado decimal(4,2),
+	resultado decimal(5,2),
 	fechaCalculo date
 	);
+
 
 
 	--Procedimiento para la tabla usuario
@@ -67,7 +74,7 @@ CREATE PROCEDURE GestionarMedicion
     @Id INT = NULL,
     @UserID INT = NULL,
     @Peso DECIMAL(5,2) = NULL,
-    @Talla DECIMAL(4,2) = NULL
+    @Talla DECIMAL(5,2) = NULL
 AS
 BEGIN
     IF @Operacion = 'Insertar'
@@ -97,7 +104,7 @@ CREATE PROCEDURE GestionarIMC
     @Operacion VARCHAR(20),
     @Id INT = NULL,
     @MedicionID INT = NULL,
-    @Imc DECIMAL(4,2) = NULL,
+    @Imc DECIMAL(5,2) = NULL,
     @FechaCalculo DATE = NULL
 AS
 BEGIN
@@ -163,10 +170,16 @@ INSERT INTO Usuarios (Nombre, edad, sexo) VALUES ('George', 18, 'M');
 
 select * from Usuarios;
 select * from Mediciones;
+select * from IMC;
 select * from Historial;
 
 delete from Usuarios;
 delete from Mediciones;
+delete from IMC;
+
+GRANT EXECUTE ON dbo.GestionarUsuario TO [usersql];
+GRANT EXECUTE ON dbo.GestionarMedicion TO [usersql];
+GRANT EXECUTE ON dbo.GestionarIMC TO [usersql];
 
 
 

@@ -42,6 +42,6 @@ public ControlFacade() {
     public List<Medicion> obtenerMediciones(int userId) {
         return consultaControl.obtenerMediciones(userId);
     }
-
+    
     
 }

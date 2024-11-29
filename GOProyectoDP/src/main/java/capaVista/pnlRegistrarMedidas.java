@@ -55,10 +55,10 @@ public class pnlRegistrarMedidas extends javax.swing.JPanel {
         jLabel2.setText("ID:   ");
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jLabel3.setText("Talla:");
+        jLabel3.setText("Peso:");
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jLabel4.setText("Peso:");
+        jLabel4.setText("Talla:");
 
         txtId.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         txtId.addActionListener(new java.awt.event.ActionListener() {

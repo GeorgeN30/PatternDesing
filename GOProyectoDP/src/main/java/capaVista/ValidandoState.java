@@ -33,6 +33,9 @@ public class ValidandoState implements EstadoMedida {
             // Llamar al ControlFacade para realizar la inserción en la base de datos
             ControlFacade controlFacade = new ControlFacade();
             controlFacade.registrarMedicion(nuevaMedicion);  // Insertar en la base de datos
+             // Llamar al método para calcular y registrar el IMC
+            controlFacade.calcularYRegistrarIMC(userId);
+            
 
             // Cambiar al estado Completado
             pnl.setEstado(new CompletadoState());  // Cambiar a estado Completado
