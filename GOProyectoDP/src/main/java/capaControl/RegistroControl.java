@@ -16,15 +16,15 @@ public class RegistroControl {
     private static RegistroControl instancia;
     private final IRegisUsuario registrarUsuario;
     private final IRegisMedicion registrarMedicion;
+    private final IRegisMedicion actualizarMedicion;
     private final IRegisIMC registrarIMC;
     
 
     private RegistroControl() {
         registrarUsuario = RegistroFactory.crearRegistroUsuario();
         registrarMedicion = RegistroFactory.crearRegistroMedicion();
+        actualizarMedicion = RegistroFactory.crearActualizarMedicion();
         registrarIMC = RegistroFactory.crearRegistroIMC();
-        
-        
     }
 
     public static RegistroControl obtenerInstancia() {
@@ -44,6 +44,10 @@ public class RegistroControl {
 
     public void registrarMedicion(Medicion medicion) {
         registrarMedicion.registrarMedicion(medicion);
+    }
+    
+    public void actualizarMedicion(Medicion medicion){
+        actualizarMedicion.actualizarMedicion(medicion);
     }
 
     public void registrarIMC(IMC imc) {

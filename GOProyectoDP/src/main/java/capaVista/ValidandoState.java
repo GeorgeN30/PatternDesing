@@ -42,6 +42,38 @@ public class ValidandoState implements EstadoMedida {
 
             // Mensaje de éxito
             JOptionPane.showMessageDialog(pnl, "Las medidas se han guardado correctamente.");
+            pnl.limpiarCampos();
+        }
+    }
+    
+     @Override
+    public void realizarAccionActualizar(pnlActualizarMedidas pnl) {
+        // Obtener los valores de los campos con los nuevos getters
+        int userId = pnl.getId();  // ID debe ser un número entero
+        double talla = pnl.getTalla();  // Talla como double
+        double peso = pnl.getPeso();  // Peso como double
+
+        // Validar que los valores sean correctos
+        if (userId == -1 || talla == -1.0 || peso == -1.0) {
+            // Si algún valor es inválido, mostrar mensaje de error
+            JOptionPane.showMessageDialog(pnl, "Por favor complete todos los campos correctamente.");
+        } else {
+
+                // Crear el objeto Medicion para la actualización
+                Medicion nuevaMedicion = new Medicion(0, userId, talla, peso);
+
+                // Llamar al ControlFacade para realizar la actualización en la base de datos
+                ControlFacade controlFacade = new ControlFacade();
+                controlFacade.actualizarMedicion(nuevaMedicion);  // Actualizar en la base de datos
+                // Llamar al método para calcular y registrar el IMC si es necesario
+                controlFacade.calcularYRegistrarIMC(userId);
+
+                // Cambiar al estado Completado
+                 // Cambiar a estado Completado
+                  pnl.setEstado(new CompletadoState());
+                // Mensaje de éxito
+                JOptionPane.showMessageDialog(pnl, "Las medidas se han actualizado correctamente.");
+            pnl.limpiarCampos();
         }
     }
 }

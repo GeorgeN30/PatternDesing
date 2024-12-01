@@ -33,6 +33,11 @@ public ControlFacade() {
     public void registrarMedicion(Medicion medicion) {
         registroControl.registrarMedicion(medicion);
     }
+    
+    public void actualizarMedicion(Medicion medicion) {
+        registroControl.actualizarMedicion(medicion);
+    }
+    
     public double calcularYRegistrarIMC(int userId) {
         return consultaControl.calcularYRegistrarIMC(userId);
     }

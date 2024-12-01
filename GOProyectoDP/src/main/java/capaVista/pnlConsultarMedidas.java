@@ -59,7 +59,7 @@ public class pnlConsultarMedidas extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "ID", "Nombre", "Peso", "Talla"
+                "ID", "Nombre", "Talla", "Peso"
             }
         ));
         jScrollPane1.setViewportView(TbDatosUsuario);

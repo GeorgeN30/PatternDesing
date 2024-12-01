@@ -16,6 +16,7 @@ import java.util.List;
  */
 public class RegisMedicionImpl implements IRegisMedicion {
     private IMedicionDAO medicionDAO;
+    
 
     public RegisMedicionImpl() {
         medicionDAO = DAOFactory.getMedicionDAO();
@@ -33,6 +34,15 @@ public class RegisMedicionImpl implements IRegisMedicion {
             return;
         }
         medicionDAO.insertarMedicion(medicion);
+    }
+    
+    @Override
+    public void actualizarMedicion(Medicion medicion) {
+        if (medicionDAO == null) {
+            System.out.println("Error: medicionDAO es null al intentar Actualizar una medición");
+            return;
+        }
+        medicionDAO.actualizarMedicion(medicion);
     }
 
     @Override

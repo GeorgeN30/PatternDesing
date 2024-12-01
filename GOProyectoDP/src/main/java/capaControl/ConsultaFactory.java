@@ -12,7 +12,7 @@ public class ConsultaFactory {
             case "IMC":
                 // Crear y devolver el servicio de IMC
                 return new IMCService();
-            // Puedes agregar más casos para otros servicios en el futuro, si los necesitas.
+            
             default:
                 throw new IllegalArgumentException("Tipo de servicio desconocido: " + tipoServicio);
         }

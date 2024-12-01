@@ -10,4 +10,5 @@ package capaVista;
  */
 public interface EstadoMedida {
      void realizarAccion(pnlRegistrarMedidas pnl);
+     void realizarAccionActualizar(pnlActualizarMedidas pnl);
 }

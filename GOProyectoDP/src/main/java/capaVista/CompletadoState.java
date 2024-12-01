@@ -17,4 +17,11 @@ public class CompletadoState implements EstadoMedida {
         JOptionPane.showMessageDialog(pnl, "Registro completado. Puede ingresar nuevas medidas.");
         pnl.limpiarCampos();
     }
+    
+    @Override
+    public void realizarAccionActualizar(pnlActualizarMedidas pnl) {
+        // Mostrar mensaje de que el proceso está completado
+        JOptionPane.showMessageDialog(pnl, "Actualización completada. Puede ingresar nuevas medidas.");
+        pnl.limpiarCampos();
+    }
 }

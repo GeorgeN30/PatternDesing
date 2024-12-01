@@ -13,5 +13,6 @@ import java.util.List;
  */
 public interface IRegisMedicion {
     void registrarMedicion(Medicion medicion);
+    void actualizarMedicion(Medicion medicion);
     List<Medicion> obtenerMediciones(int userId);
 }

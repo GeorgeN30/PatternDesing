@@ -18,8 +18,15 @@ public class ControlVistaProxy implements IControlVista {
         // Crear un objeto Usuario con los datos proporcionados
         Date fechaRegistro = new Date(Calendar.getInstance().getTimeInMillis());
         Usuario nuevoUsuario = new Usuario(0, nombre, edad, sexo, fechaRegistro);
-
+        
         // Delegar la llamada al ControlFacade
         controlFacade.registrarUsuario(nuevoUsuario);
+    }
+    
+     @Override
+    public void actualizarUsuario(int id, String nombre, int edad, char sexo) {
+        Date fechaRegistro = new Date(Calendar.getInstance().getTimeInMillis());
+        Usuario usuario = new Usuario(id, nombre, edad, sexo,  fechaRegistro);
+        controlFacade.actualizarUsuario(usuario);
     }
 }

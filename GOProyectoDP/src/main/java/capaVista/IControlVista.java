@@ -10,4 +10,5 @@ package capaVista;
  */
 public interface IControlVista {
      void registrarUsuario(String nombre, int edad, char sexo);
+     void actualizarUsuario(int id, String nombre, int edad, char sexo);
 }

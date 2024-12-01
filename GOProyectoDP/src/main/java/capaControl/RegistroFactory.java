@@ -15,12 +15,14 @@ public class RegistroFactory {
         IRegisMedicion medicionImpl = new RegisMedicionImpl();
         return new MedicionLoggingDecorator(medicionImpl);
     }
+    
+    public static IRegisMedicion  crearActualizarMedicion(){
+        IRegisMedicion actualizacionImpl = new RegisMedicionImpl();
+        return new MedicionLoggingDecorator(actualizacionImpl);
+    }
 
     public static IRegisIMC crearRegistroIMC() {
         return new RegisIMCImpl();
     }
-
-   
     
-
 }

@@ -9,9 +9,9 @@ import javax.swing.JOptionPane;
  * @author georg
  */
 public class BuscarIMCCommand implements Command {
-    private int id;
-    private ControlFacade controlFacade;
-    private pnlConsultarIMC view;  // Vista donde se actualizará la tabla
+    private final int id;
+    private final ControlFacade controlFacade;
+    private final pnlConsultarIMC view;  // Vista donde se actualizará la tabla
 
     public BuscarIMCCommand(int id, ControlFacade controlFacade, pnlConsultarIMC view) {
         this.id = id;
@@ -26,7 +26,7 @@ public class BuscarIMCCommand implements Command {
 
         if (usuario != null) {
             // Obtener el IMC ya calculado (puedes obtenerlo de la base de datos o de alguna lógica previa)
-            double imc = controlFacade.calcularYRegistrarIMC(id); // Método que obtiene el IMC ya registrado
+            double imc = controlFacade.calcularYRegistrarIMC(id); 
 
             // Llamar al método en la vista para mostrar los resultados
             view.mostrarIMC(usuario, imc);
