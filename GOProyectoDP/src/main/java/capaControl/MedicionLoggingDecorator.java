@@ -33,7 +33,7 @@ public class MedicionLoggingDecorator implements IRegisMedicion {
         medicionControl.registrarMedicion(medicion);
         
         // Funcionalidad adicional después de registrar la medición
-        System.out.println("[LOG] Medición registrada exitosamente: ");
+        System.out.println("[LOG] Medición Actualizada exitosamente: ");
     }
 
     @Override
